@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 class Urls():
     MAIN_PAGE_URL = 'http://selenium1py.pythonanywhere.com/'
+    LOGIN_PAGE_URI = '/accounts/login/'
 
 
 class MainPageLocators():
