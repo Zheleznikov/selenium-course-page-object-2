@@ -6,7 +6,8 @@ https://stepik.org/course/575/syllabus
 ### Настройка виртуального окружения
 1. Создать с помощью `python -m venv название-окружения`
 2. Потом его надо активировать.
-Для активации в git bash надо писать `source venv/bin/activate`
+Для активации на линуксе надо писать `source venv/bin/activate`
+Для активации на windows в gitbash надо `source venv/Scripts/activate.bat`
 Если надо деактивировать, то просто вводим `deactivate`
 Проверить что все ок 
 `which python` `which pip`
