@@ -1,6 +1,6 @@
 selenium-env/
 .vscode/
 .flake8
-__pycache__
-.pytest_cache
+__pycache__/
+.pytest_cache/
 debug.log
