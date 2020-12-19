@@ -1,16 +1,13 @@
 import pytest
 from pages.product_page import ProductPage
 from pages.locators import Urls
-from time import sleep
-
-link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7'
 
 
-@pytest.mark.parametrize('link', Urls.LINKS_PROMO_OFFER)
+@pytest.mark.parametrize("link", Urls.LINKS_PROMO_OFFER)
 # @pytest.mark.parametrize('link', ["okay_link",
 #                                   pytest.param("bugged_link", marks=pytest.mark.xfail),
 #                                   "okay_link"])
-def test_guest_can_add_product_to_basket(browser):
+def test_guest_can_add_product_to_basket(browser, link):
     browser.delete_all_cookies()
     product_page = ProductPage(browser, link)
     product_page.open()
@@ -21,4 +18,3 @@ def test_guest_can_add_product_to_basket(browser):
     product_page.should_be_alert_with_basket_price()
     product_page.is_product_price_the_same()
     product_page.is_product_name_the_same()
-    sleep(20)
