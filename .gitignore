@@ -1,7 +1,8 @@
 selenium-env/
 .vscode/
-.flake8
+flake8
 __pycache__/
 .pytest_cache/
 debug.log
 .idea/
+workspace.code-workspace
