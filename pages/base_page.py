@@ -23,6 +23,13 @@ class BasePage():
             return False
         return True
 
+    def is_element_present2(self, how, what, n=0):
+        try:
+            self.browser.find_elements(how, what)
+        except(NoSuchElementException):
+            return False
+        return True
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(' ')[2]

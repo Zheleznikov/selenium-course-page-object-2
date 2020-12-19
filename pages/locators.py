@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+import pytest 
 
 
 class Urls:
@@ -30,7 +31,12 @@ class LoginPageLocators:
 class ProductPageLocators:
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PRODUCT_PRICE_LOCATOR = (By.CSS_SELECTOR, ".product_main > .price_color")
-    PRODUCT_PRICE_IN_BASKET = (By.CSS_SELECTOR, ".alertinner > p > strong")
-    NOTIFICATION_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, ".alertinner")
-    ALERT_PRODUCT_NAME = (By.CSS_SELECTOR, "#messages > alert")
-    ALERT_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, "#messages > alert")
+    PRODUCT_NAME_LOCATOR = (By.CSS_SELECTOR, ".product_main > h1")
+    ALERT_THAT_PRODUCT_ADD_TO_BASKET = (By.CSS_SELECTOR, "#messages > .alert")
+    ALERT_WITH_BASKET_PRICE = (By.CSS_SELECTOR, "#messages > .alert", 2)
+    BASKET_PRODUCT_NAME_LOCATOR = (By.CSS_SELECTOR, ".alertinner > strong")
+    BASKET_PRODUCT_PRICE_LOCATOR = (By.CSS_SELECTOR, ".alertinner > p > strong")
+    # PRODUCT_PRICE_IN_BASKET = (By.CSS_SELECTOR, ".alertinner > p > strong")
+    # NOTIFICATION_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, ".alertinner")
+    # ALERT_PRODUCT_NAME = (By.CSS_SELECTOR, "#messages > alert")
+    # ALERT_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, "#messages > alert")
