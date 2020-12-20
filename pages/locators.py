@@ -35,3 +35,4 @@ class ProductPageLocators:
     ALERT_WITH_BASKET_PRICE = (By.CSS_SELECTOR, "#messages > .alert", 2)
     BASKET_PRODUCT_NAME_LOCATOR = (By.CSS_SELECTOR, ".alertinner > strong")
     BASKET_PRODUCT_PRICE_LOCATOR = (By.CSS_SELECTOR, ".alertinner > p > strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages")

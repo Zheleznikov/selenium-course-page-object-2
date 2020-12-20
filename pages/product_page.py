@@ -3,7 +3,7 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def go_to_basket(self):
+    def add_product_to_basket(self):
         basket_button = self.browser.find_element(
             *ProductPageLocators.ADD_TO_BASKET_BUTTON
         )
@@ -44,3 +44,7 @@ class ProductPage(BasePage):
             *ProductPageLocators.BASKET_PRODUCT_NAME_LOCATOR
         ).text
         assert product_name == product_name_in_basket
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
+
