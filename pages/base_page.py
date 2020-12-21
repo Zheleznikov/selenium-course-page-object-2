@@ -11,7 +11,7 @@ class BasePage:
         self.browser = browser
         self.url = url
         # self.user_language = user_language
-        self.browser.implicitly_wait(timeout)
+        # self.browser.implicitly_wait(timeout)
 
     def open(self):
         # открываем браузер
@@ -54,10 +54,12 @@ class BasePage:
             return True
         return False
 
-    # def is_not_element_present(self, how, what, timeout=4):
-    #     try:
-    #         WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
-    #     except TimeoutException:
-    #         return True
+    def is_disappeared(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException).\
+                until_not(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return False
 
-    #     return False
+        return True
+
