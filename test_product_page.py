@@ -3,13 +3,13 @@ from pages.product_page import ProductPage
 from pages.login_page import LoginPage
 from pages.basket_page import BasketPage
 from pages.locators import Urls
-from time import sleep
 
 
 @pytest.mark.parametrize("link", Urls.LINKS_PROMO_OFFER)
 # @pytest.mark.parametrize('link', ["okay_link",
 #                                   pytest.param("bugged_link", marks=pytest.mark.xfail),
 #                                   "okay_link"])
+@pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser, link):
     product_page = ProductPage(browser, link)
     product_page.open()
@@ -20,7 +20,6 @@ def test_guest_can_add_product_to_basket(browser, link):
     product_page.should_be_alert_with_basket_price()
     product_page.is_product_price_the_same()
     product_page.is_product_name_the_same()
-    sleep(600)
 
 
 @pytest.mark.xfail(reason="guest see message after adding")
@@ -31,7 +30,6 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product_page.add_product_to_basket()
     product_page.solve_quiz_and_get_code()
     product_page.should_not_be_success_message()
-    sleep(20)
 
 
 def test_guest_cant_see_success_message(browser):
@@ -58,6 +56,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
     product_page.should_be_login_link()
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     product_page = ProductPage(browser, link)
@@ -67,6 +66,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     login_page.should_be_login_page()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     product_page = ProductPage(browser, link)

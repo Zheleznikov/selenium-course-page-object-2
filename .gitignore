@@ -5,5 +5,3 @@ __pycache__/
 .pytest_cache/
 debug.log
 .idea/
-workspace.code-workspace
-workspace.code-workspace
