@@ -4,22 +4,20 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import math
+from .locators import BasePageLocators
+from selenium.webdriver.common.by import By
 
 
 class BasePage:
     def __init__(self, browser, url, timeout=6):
         self.browser = browser
         self.url = url
-        # self.user_language = user_language
         # self.browser.implicitly_wait(timeout)
 
     def open(self):
-        # открываем браузер
         self.browser.get(self.url)
-        # print(self.user_language)
 
     def is_element_present(self, how, what):
-        # проверяем есть ли элемент на старнице. Если такого элемента не находится, то подставляем кастомное
         try:
             self.browser.find_element(how, what)
         except (NoSuchElementException):
@@ -63,3 +61,16 @@ class BasePage:
 
         return True
 
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(By.CSS_SELECTOR, '#login_link')
+        link.click()
+
+    def go_to_basket(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_LOCATOR)
+        link.click()
+
+    def should_be_basket(self):
+        assert self.is_element_present(*BasePageLocators.BASKET_LOCATOR), "No basket"

@@ -18,6 +18,12 @@ class Urls:
     ]
 
 
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LOCATOR = (By.CSS_SELECTOR, ".basket-mini > span > .btn")
+
+
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
@@ -35,4 +41,8 @@ class ProductPageLocators:
     ALERT_WITH_BASKET_PRICE = (By.CSS_SELECTOR, "#messages > .alert", 2)
     BASKET_PRODUCT_NAME_LOCATOR = (By.CSS_SELECTOR, ".alertinner > strong")
     BASKET_PRODUCT_PRICE_LOCATOR = (By.CSS_SELECTOR, ".alertinner > p > strong")
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages")
+    
+
+class BasketPageLocators():
+    PRODUCT_IN_BASKET_FORM = (By.CSS_SELECTOR, "#basket_formset")
+    BASKET_IS_EMPTY_LOCATOR = (By.CSS_SELECTOR, "#content_inner > p")
